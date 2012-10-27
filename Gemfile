@@ -1,9 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'sqlite3', '1.3.6'
+gem 'sqlite3', '1.3.6', :group => [:development, :test]
 gem 'gravatar_image_tag', '1.0.0.pre2'
-gem 'will_paginate', :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
+gem 'will_paginate'
+
+group :production do
+  gem 'thin'
+  gem 'pg'
+end
 
 group :development do
   gem 'rspec-rails', '2.6.1'
